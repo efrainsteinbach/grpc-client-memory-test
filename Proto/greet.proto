@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package greet;
+
+service Greeter {
+  rpc GetNumbers (NumberRequest) returns (NumberReply);
+}
+
+message NumberRequest {
+}
+
+message NumberReply {
+  repeated DoubleDataPoint points = 1;
+}
+
+message DoubleDataPoint {
+	double value = 1;
+	google.protobuf.Timestamp date = 2;
+}
